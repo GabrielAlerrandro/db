@@ -1,6 +1,10 @@
 const jsonServer = require("json-server")
-
 const cors = require("cors")
+
+const corsOptions = {
+  origin: "https://world-wise-snowy-one.vercel.app",
+  credentials: true,
+}
 
 const server = jsonServer.create()
 
@@ -8,7 +12,7 @@ const router = jsonServer.router("db.json")
 
 const middlewares = jsonServer.defaults()
 
-server.use(cors())
+server.use(cors(corsOptions))
 
 server.use(middlewares)
 server.use(
